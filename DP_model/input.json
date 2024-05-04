@@ -1,0 +1,95 @@
+{
+    "_comment": "that's all",
+    "model": {
+        "type_map": [
+            "O",
+            "H"
+        ],
+        "descriptor": {
+            "type": "se_a",
+            "sel": [
+                150,
+                300
+            ],
+            "rcut_smth": 2.0,
+            "rcut": 6.0,
+            "neuron": [
+                30,
+                60,
+                120
+            ],
+            "resnet_dt": false,
+            "axis_neuron": 16,
+            "seed": 3144914588,
+            "_comment": " that's all"
+        },
+        "fitting_net": {
+            "neuron": [
+                300,
+                300,
+                300
+            ],
+            "resnet_dt": true,
+            "seed": 656387190,
+            "_comment": " that's all"
+        },
+        "_comment": " that's all"
+    },
+    "learning_rate": {
+        "type": "exp",
+        "start_lr": 0.002,
+        "decay_steps": 2000,
+        "stop_lr": 3e-08,
+        "_comment": "that's all"
+    },
+    "loss": {
+        "start_pref_e": 0.02,
+        "limit_pref_e": 1,
+        "start_pref_f": 100,
+        "limit_pref_f": 1,
+        "start_pref_v": 0.02,
+        "limit_pref_v": 1,
+        "_comment": " that's all"
+    },
+    "training": {
+        "systems": [
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000000/02.fp/data.000",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000001/02.fp/data.001",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000002/02.fp/data.002",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000003/02.fp/data.003",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000004/02.fp/data.000",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000005/02.fp/data.001",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000006/02.fp/data.002",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000007/02.fp/data.003",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000008/02.fp/data.004",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000009/02.fp/data.005",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000010/02.fp/data.008",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000011/02.fp/data.008",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000012/02.fp/data.008",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000013/02.fp/data.009",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000014/02.fp/data.009",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000015/02.fp/data.009",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.pimd.00/deepmd/data.000",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.pimd.00/deepmd/data.001",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.pimd.00/deepmd/data.002",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000019/02.fp/data.010",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000020/02.fp/data.010",
+            "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.000021/02.fp/data.010"
+        ],
+        "set_prefix": "set",
+        "auto_prob": "prob_uniform",
+        "stop_batch": 600000,
+        "batch_size": "auto",
+        "seed": 2637894509,
+        "_comment": "that's all",
+        "disp_file": "lcurve.out",
+        "disp_freq": 1000,
+        "numb_test": 10,
+        "save_freq": 1000,
+        "save_ckpt": "model.ckpt",
+        "disp_training": true,
+        "time_training": true,
+        "profiling": false,
+        "profiling_file": "timeline.json"
+    }
+}

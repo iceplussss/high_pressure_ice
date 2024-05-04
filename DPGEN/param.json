@@ -1,0 +1,194 @@
+{
+  "type_map": [
+    "O",
+    "H"
+  ],
+  "mass_map": [
+    16,
+    2
+  ],
+  "init_data_prefix": "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.init",
+  "init_data_sys": [
+    "train"
+  ],
+  "init_batch_size": [
+    1
+  ],
+  "sys_configs": [
+      ["/home/bingjiay/data.gpfs/iceX/DPGEN/iter.init/md/*[0-1]/POSCAR"],
+      ["/home/bingjiay/data.gpfs/iceX/DPGEN/iter.init/md/*[2-3]/POSCAR"],
+      ["/home/bingjiay/data.gpfs/iceX/DPGEN/iter.init/md/*[4-6]/POSCAR"],
+      ["/home/bingjiay/data.gpfs/iceX/DPGEN/iter.init/md/*[7-9]/POSCAR"],
+      ["/home/bingjiay/data.gpfs/iceX/DPGEN/iter.init/md/*[0-1]/POSCAR.2x2x2"],
+      ["/home/bingjiay/data.gpfs/iceX/DPGEN/iter.init/md/*[2-3]/POSCAR.2x2x2"],
+      ["/home/bingjiay/data.gpfs/iceX/DPGEN/iter.init/md/*[4-6]/POSCAR.2x2x2"],
+      ["/home/bingjiay/data.gpfs/iceX/DPGEN/iter.init/md/*[7-9]/POSCAR.2x2x2"],
+      ["/home/bingjiay/data.gpfs/iceX/DPGEN/iter.init/ice8_config/POSCAR.64"],
+      ["/home/bingjiay/data.gpfs/iceX/DPGEN/iter.init/ice8_config/POSCAR.128"],
+      ["/home/bingjiay/data.gpfs/iceX/DPGEN/iter.init/ice10/128/POSCAR"]
+  ],
+  "sys_batch_size": [
+    1,1,1,1,1,1,1,1,1,1,1
+  ],
+  "_comment": " that's all ",
+  "numb_models": 4,
+  "train_param": "input.json",
+  "default_training_param": {
+    "_comment": " model parameters",
+    "model": {
+	"type_map":	["O", "H"],
+	"descriptor" :{
+	    "type":		"se_a",
+	    "sel":		[150, 300],
+	    "rcut_smth":	2.00,
+	    "rcut":		6.00,
+	    "neuron":		[30, 60, 120],
+	    "resnet_dt":	false,
+	    "axis_neuron":	16,
+	    "seed":		1,
+	    "_comment":		" that's all"
+	},
+	"fitting_net" : {
+	    "neuron":		[240, 240, 240],
+	    "resnet_dt":	true,
+	    "seed":		1,
+	    "_comment":		" that's all"
+	},
+	"_comment":	" that's all"
+    },
+
+    "learning_rate" :{
+	"type":		"exp",
+	"start_lr":	0.002,
+	"decay_steps":	2000,
+  "stop_lr": 5.7e-7,
+	"_comment":	"that's all"
+    },
+
+    "loss" :{
+	"start_pref_e":	0.1,
+	"limit_pref_e":	1,
+	"start_pref_f":	100,
+	"limit_pref_f":	1,
+	"start_pref_v":	0.1,
+	"limit_pref_v":	1,
+	"_comment":	" that's all"
+    },
+
+    "_comment": " traing controls",
+    "training" : {
+	"systems":	[],
+  "auto_prob":    "prob_uniform",
+	"set_prefix":	"set",    
+	"stop_batch":	500000,
+	"batch_size":	1,
+
+	"seed":		1234,
+
+	"_comment": " display and restart",
+	"_comment": " frequencies counted in batch",
+	"disp_file":	"lcurve.out",
+	"disp_freq":	1000,
+	"numb_test":	10,
+	"save_freq":	1000,
+	"save_ckpt":	"model.ckpt",
+	"disp_training":true,
+	"time_training":true,
+	"profiling":	false,
+	"profiling_file":"timeline.json",
+	"_comment":	"that's all"
+    },
+    "_comment":		"that's all"
+  },
+  "model_devi_dt": 0.001,
+  "model_devi_skip": 100,
+  "model_devi_f_trust_lo": 0.05,
+  "model_devi_f_trust_hi": 0.20,
+  "model_devi_clean_traj": false,
+  "model_devi_jobs": [
+     {"temps": [240,270,300,330], "press":[200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 1100000, 1200000], "sys_idx": [0],"trj_freq": 2,"nsteps":  100,"ensemble": "npt","_idx": 0},
+     {"temps": [240,270,300,330], "press":[200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 1100000, 1200000], "sys_idx": [1],"trj_freq": 10,"nsteps":  1000,"ensemble": "npt","_idx": 1},
+     {"temps": [240,270,300,330], "press":[200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 1100000, 1200000], "sys_idx": [2],"trj_freq": 20,"nsteps":  3000,"ensemble": "npt","_idx": 2},
+     {"temps": [240,270,300,330], "press":[200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 1100000, 1200000], "sys_idx": [3],"trj_freq": 20,"nsteps":  3000,"ensemble": "npt","_idx": 3},
+     {"temps": [240,270,300,330], "press":[200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 1100000, 1200000], "sys_idx": [0],"trj_freq": 20,"nsteps":  5000,"ensemble": "npt","_idx": 4},
+     {"temps": [240,270,300,330], "press":[200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 1100000, 1200000], "sys_idx": [1],"trj_freq": 20,"nsteps":  5000,"ensemble": "npt","_idx": 5},
+     {"temps": [240,270,300,330], "press":[200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 1100000, 1200000], "sys_idx": [2],"trj_freq": 20,"nsteps":  10000,"ensemble": "npt","_idx": 6},
+     {"temps": [240,270,300,330], "press":[200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 1100000, 1200000], "sys_idx": [3],"trj_freq": 20,"nsteps":  10000,"ensemble": "npt","_idx": 7},
+     {"temps": [240,270,300,330], "press":[200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 1100000, 1200000], "sys_idx": [4],"trj_freq": 20,"nsteps":  5000,"ensemble": "npt","_idx": 8},
+     {"temps": [240,270,300,330], 
+      "press":[200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 1100000, 1200000], 
+      "sys_idx": [5],"trj_freq": 20,"nsteps":  5000,"ensemble": "npt","_idx": 9},
+     {"temps": [50,100,150,200,250,300], 
+      "press":[200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 1100000, 1200000], 
+      "sys_idx": [8],"trj_freq": 20,"nsteps":  5000,"ensemble": "npt","_idx": 10},
+     {"temps": [50,100,150,200,250,300], 
+      "press":[200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 1100000, 1200000], 
+      "sys_idx": [8],"trj_freq": 20,"nsteps":  10000,"ensemble": "npt","_idx": 11},
+     {"temps": [50,100,150,200,250,300], 
+      "press":[200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 1100000, 1200000], 
+      "sys_idx": [8],"trj_freq": 20,"nsteps":  10000,"ensemble": "npt","_idx": 12},
+     {"temps": [ 50,100,150,200], 
+      "press":[   500000, 800000, 850000, 900000, 950000, 1000000, 1050000], 
+      "sys_idx": [9],"trj_freq": 20,"nsteps":  10000,"ensemble": "npt-aniso","_idx": 13},
+      {"temps": [ 50,100,150,200], 
+        "press":[   500000, 800000, 850000, 900000, 920000, 950000, 1000000, 1050000, 1100000], 
+        "sys_idx": [9],"trj_freq": 20,"nsteps":  20000,"ensemble": "npt-aniso","_idx": 14},
+      {"temps": [ 50, 70, 90,100,110,120,150,200], 
+        "press":[   500000, 800000, 850000, 900000, 920000, 950000, 1000000, 1050000, 1100000], 
+        "sys_idx": [9],"trj_freq": 20,"nsteps":  20000,"ensemble": "npt-aniso","_idx": 15},
+      {"temps": [ 50, 100], 
+            "press":[   500000, 550000, 600000, 650000, 700000, 800000], 
+            "sys_idx": [9],"trj_freq": 20,"nsteps":  20000,"ensemble": "npt-aniso","_idx": 16},
+      {"temps": [ 50, 100, 150, 200], 
+        "press":[   400000, 500000, 550000, 600000, 650000, 700000, 800000], 
+        "sys_idx": [9],"trj_freq": 20,"nsteps":  20000,"ensemble": "npt-aniso","_idx": 17},
+      {"temps": [ 50], 
+        "press":[   400000, 500000, 550000, 600000, 650000, 700000, 800000, 900000, 1000000], 
+        "sys_idx": [0,2,9],"trj_freq": 20,"nsteps":  10000,"ensemble": "npt-aniso","_idx": 18},
+      {"temps": [ 50, 100,  200, 300], 
+            "press":[  500000,  600000,  700000, 800000, 900000, 1000000, 1100000, 1200000], 
+            "sys_idx": [10],"trj_freq": 20, "nsteps":  10000, "ensemble": "npt-iso","_idx": 19},
+      {"temps": [ 50, 100,  200], 
+            "press":[  500000,  600000,  700000, 800000, 900000, 1000000, 1100000, 1200000], 
+            "sys_idx": [10],"trj_freq": 20, "nsteps":  10000, "ensemble": "npt-aniso","_idx": 20},
+      {"temps": [ 50, 100,  200], 
+            "press":[  500000,  600000,  700000, 800000, 900000, 1000000, 1100000, 1200000], 
+            "sys_idx": [10],"trj_freq": 20, "nsteps":  10000, "ensemble": "npt-aniso","_idx": 21},
+      {"temps": [ 50, 100, 150, 200], 
+            "press":[  900000,  950000, 1000000, 1050000, 1100000,1150000,1200000, 1250000  ], 
+            "sys_idx": [9, 10],"trj_freq": 20, "nsteps":  20000, "ensemble": "npt-aniso","_idx": 22}
+  ],
+  "fp_style": "pwscf",
+  "shuffle_poscar": false,
+  "fp_task_max": 100,
+  "fp_task_min": 5,
+  "fp_pp_path": "/home/bingjiay/data.gpfs/iceX/DPGEN/iter.init",
+  "fp_pp_files": [
+    "O_HSCV_PBE-1.0.UPF", "H_HSCV_PBE-1.0.UPF"
+  ],
+
+  "user_fp_params":     {
+        "_comment": "pseudo_dir will be added automatically",
+        "control":      {
+            "calculation":      "scf",
+            "restart_mode":     "from_scratch",
+            "outdir":           "./OUT",
+            "tprnfor":          true,
+            "tstress":          true,
+            "disk_io":          "none"
+        },
+        "_comment": "ibrav, nat and ntyp will be added automatically",
+        "system":       {
+            "ecutwfc":          150,
+            "input_dft":       "pbe",
+            "nosym":           true
+        },
+        "electrons":    {
+            "conv_thr":         1e-8,
+            "electron_maxstep":  300
+        },
+        "kspacing":     0.5
+    },
+    "_comment":         " that's all "
+}
+
